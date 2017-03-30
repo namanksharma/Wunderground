@@ -14,16 +14,15 @@ class Migration(migrations.Migration):
             name='city',
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True)),
-                ('name', models.CharField(unique=True, verbose_name='Name', max_length=100)),
-                ('country', models.CharField(blank=True, verbose_name='Country', max_length=100)),
+                ('name', models.CharField(verbose_name='Name', max_length=300)),
                 ('lattitude', models.CharField(blank=True, max_length=20)),
                 ('longitude', models.CharField(blank=True, max_length=20)),
-                ('is_deleted', models.BooleanField(default=False, verbose_name='deleted')),
+                ('is_deleted', models.BooleanField(verbose_name='deleted', default=False)),
             ],
             options={
-                'db_table': 'city',
-                'verbose_name_plural': 'Cities',
                 'verbose_name': 'City',
+                'verbose_name_plural': 'Cities',
+                'db_table': 'city',
             },
         ),
     ]

@@ -10,9 +10,12 @@ import datetime
 
 @csrf_exempt
 def weather_info(request):
-	cityObj = city.objects.filter(is_deleted = False)
-
-	context = RequestContext(request,{'request': request, 'cities':cityObj})
+	context = None
+	try:
+		cityObj = city.objects.filter(is_deleted = False)
+		context = RequestContext(request,{'request': request, 'cities':cityObj})
+	except Exception as e:
+		context = RequestContext(request,{'request': request})
 	return render(request, "index.html",context_instance=context)
 
 @csrf_exempt

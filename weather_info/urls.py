@@ -16,6 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from weather_info import views
 from weather_info import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),

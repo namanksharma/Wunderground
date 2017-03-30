@@ -15,10 +15,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from weather_info import views
+from weather_info import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',views.weather_info, name='weather_info'),
     url(r'^save_city_data/$',views.save_city_data, name='save_city_data'),
     url(r'^get_city_data/$',views.get_city_data, name='get_city_data'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
